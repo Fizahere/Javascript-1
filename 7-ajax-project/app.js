@@ -1,18 +1,16 @@
 const button = document.querySelector("#button");
 const outputDiv = document.querySelector("#output");
 
-button.addEventListener("click", function (event) {
-  event.preventDefault();
-  fetch("data111.txt")
-    .then(function (resolveData) {
-      // console.log(resolveData, "resolve data");
-      return resolveData.text();
+button.addEventListener("click",function(event){
+    event.preventDefault();
+    fetch('data.txt')
+    .then(function(resolvedData){
+        return resolvedData.text();
     })
-    .then(function (data) {
-      // console.log(data, "data");
-      outputDiv.innerHTML = data;
+    .then(function(data){
+        outputDiv.innerHTML = data;
     })
-    .catch(function (rejectData) {
-      console.log(rejectData, "reject data");
-    });
-});
+    .catch(function(error){
+        console.log(error);
+    })
+})
